@@ -11,6 +11,7 @@ public:
     TArray() {
         this->len = 0;
         this->data = NULL;
+        std::cout << "defaults constructor\n";
     }
     TArray(int len) {
         this->len = len;
@@ -18,6 +19,7 @@ public:
         for (int i = 0; i < this->len; ++i) {
             this->data[i] = 0;
         }
+        std::cout << "len constructor\n";
     }
     TArray(int len, int* arr) {
         this->len = len;
@@ -25,6 +27,7 @@ public:
         for (int i = 0; i < this->len; ++i) {
             this->data[i] = arr[i];
         }
+        std::cout << "array constructor\n";
     }
 
     TArray(const TArray& rv) {
@@ -33,6 +36,7 @@ public:
         for (int i = 0; i < this->len; ++i) {
             this->data[i] = rv.data[i];
         }
+        std::cout << "copy constructor\n";
     }
     TArray& operator =(const TArray& rv) {
         this->len = rv.len;
@@ -43,11 +47,14 @@ public:
         for (int i = 0; i < this->len; ++i) {
             this->data[i] = rv.data[i];
         }
+        std::cout << "operator =\n";
+        return *this;
     }
     ~TArray() {
         if (this->data != NULL) {
             delete[] this->data;
         }
+        std::cout << "destructor\n";
     }
 
     int max() const {
@@ -58,6 +65,7 @@ public:
         for (int i = 1; i < this->len; ++i) {
             result = std::max(result, this->data[i]);
         }
+        std::cout << "method max\n";
         return result;
     }
 };
@@ -73,7 +81,7 @@ int main() {
     const int max_len = 10;
     int array[max_len];
     generate_array(max_len, array);
-    TArray a(max_len, array);
+    TArray a = {max_len, array};
     generate_array(max_len, array);
     TArray b(max_len, array);
     generate_array(max_len, array);
