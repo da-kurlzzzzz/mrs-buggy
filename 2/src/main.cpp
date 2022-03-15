@@ -30,10 +30,9 @@ void TNode::SetData(std::string str) {
 }
 
 void TNode::PrintAll() {
-    for (TNode* cur = TNode::head; cur != this; cur = cur->next) {
+    for (TNode* cur = TNode::head; cur != nullptr; cur = cur->next) {
         std::cout << cur->info << std::endl;
     }
-    std::cout << this->info << std::endl;
 }
 
 int main() {
