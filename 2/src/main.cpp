@@ -36,17 +36,18 @@ void TNode::PrintAll() {
 }
 
 int main() {
-    TNode a, b, c, d;
-    a.SetData("Ann");
-    b.SetData("Nick");
-    c.SetData("Lena");
-    d.SetData("Tom");
-
+    std::string input;
+    TNode a;
+    std::getline(std::cin, input);
+    a.SetData(input);
     a.AddToList();
-    b.AddToList();
-    c.AddToList();
-    d.AddToList();
-
-    b.PrintAll();
+    std::getline(std::cin, input);
+    while (input != "") {
+        TNode* new_node = new TNode;
+        new_node->SetData(input);
+        new_node->AddToList();
+        std::getline(std::cin, input);
+    }
+    a.PrintAll();
     return 0;
 }
