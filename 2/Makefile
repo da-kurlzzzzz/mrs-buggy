@@ -1,5 +1,5 @@
 # these can be changed
-TARGET_EXEC ?= array
+TARGET_EXEC ?= list
 
 BUILD_DIR ?= build
 SRC_DIRS ?= src
