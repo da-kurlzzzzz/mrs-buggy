@@ -21,7 +21,7 @@ public:
         }
         std::cout << "len constructor\n";
     }
-    TArray(int len, int* arr) {
+    TArray(int len, const int* arr) {
         this->len = len;
         this->data = new int[this->len];
         for (int i = 0; i < this->len; ++i) {
@@ -77,7 +77,7 @@ void generate_array(int len, int* arr) {
 }
 
 int main() {
-    srand(time(NULL));
+    srand(time(NULL)); // seed rand
     const int max_len = 10;
     int array[max_len];
     generate_array(max_len, array);
